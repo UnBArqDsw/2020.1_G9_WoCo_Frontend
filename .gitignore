@@ -33,6 +33,7 @@ doc/api/
 *.iws
 .idea/
 
+
 .vscode/
 
 # Flutter/Dart/Pub related
