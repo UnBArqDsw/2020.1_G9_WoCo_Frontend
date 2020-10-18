@@ -11,6 +11,8 @@ import 'package:WoCo/widgets/menuDrawer.dart';
 import 'package:WoCo/widgets/loading.dart';
 import 'package:WoCo/widgets/error.dart';
 
+import 'package:WoCo/models/todo.dart';
+
 class Todo extends StatefulWidget {
   @override
   _TodoState createState() => _TodoState();
@@ -35,29 +37,43 @@ class _TodoState extends State<Todo> {
 
     return Scaffold(
       drawer: MenuDrawer(),
+      appBar: AppBar(
+        backgroundColor: Color(0XFF1D3075),
+        title: Text('WoCo'),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         child: Container(
-            color: Colors.lightBlue,
+            color: Color(0XFF492f98),
             height: height,
+            width: width,
             child: BlocBuilder<TodoBloc, TodoState>(
               builder: (context, state) {
                 if (state is TodoListLoading) {
                   return Loading();
                 } else if (state is TodoListLoaded) {
-                  print(state.todos);
-                  return buildList();
+                  return buildList(state.todos);
                 } else if (state is TodoListFailure) {
-                  print(state.message);
                   return ErrorMessage(message: state.message);
                 }
-                return Text('None');
+                return Loading();
               },
             )),
       ),
     );
   }
 
-  Widget buildList() {
-    return Text('Lista');
+  Widget buildList(dynamic todos) {
+    return ListView.builder(
+      itemCount: todos.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(
+            todos[index].title,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+        );
+      },
+    );
   }
 }

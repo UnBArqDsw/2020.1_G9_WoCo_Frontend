@@ -1,6 +1,3 @@
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
 class Todo {
   int userId;
   int id;
@@ -14,16 +11,5 @@ class Todo {
     id = json['id'];
     title = json['title'];
     completed = json['completed'];
-  }
-
-  Future<List<Todo>> getTodos() async {
-    var response = await http.get('https://jsonplaceholder.typicode.com/todos');
-
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      return (data as List).map((item) => Todo.fromJson(item)).toList();
-    } else {
-      throw Exception();
-    }
   }
 }

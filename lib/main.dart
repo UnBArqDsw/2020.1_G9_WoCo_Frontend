@@ -12,8 +12,7 @@ void main() {
     title: 'WoCo',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-      primarySwatch: Colors.blue,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
+      primaryColor: Color(0XFF1D3075),
     ),
     initialRoute: '/todo',
     routes: {
