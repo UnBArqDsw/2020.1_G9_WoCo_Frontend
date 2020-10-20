@@ -1,4 +1,3 @@
-import 'package:WoCo/models/workout.dart';
 import 'package:WoCo/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:WoCo/widgets/workout_tile.dart';

@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:WoCo/data/dummy_workouts.dart';
 import 'package:WoCo/models/workout.dart';
 import 'package:flutter/material.dart';
-import 'package:WoCo/models/workout.dart';
-import 'package:WoCo/data/dummy_workouts.dart';
 
 class WorkoutProvider with ChangeNotifier {
   //Observer Pattern
