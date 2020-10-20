@@ -1,4 +1,5 @@
 import 'package:WoCo/models/workout.dart';
+import 'package:WoCo/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:WoCo/widgets/workout_tile.dart';
 import 'package:WoCo/provider/workout_provider.dart';
@@ -13,7 +14,9 @@ class WorkoutList extends StatelessWidget {
         appBar: AppBar(title: Text('Lista de Treinos'), actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add_circle),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.WORKOUT_FORM);
+            },
           ),
         ]),
         body: ListView.builder(
