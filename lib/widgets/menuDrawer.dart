@@ -1,3 +1,5 @@
+import 'package:WoCo/routes/app_routes.dart';
+import 'package:WoCo/screens/workout_list.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawer extends StatelessWidget {
@@ -15,9 +17,9 @@ class MenuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.play_circle_fill),
-            title: Text('Treino'),
+            title: Text('Treinos'),
             onTap: () {
-              print('Move to Tranning');
+              Navigator.of(context).pushNamed(AppRoutes.WORKOUT_LIST);
             },
           ),
           ListTile(
