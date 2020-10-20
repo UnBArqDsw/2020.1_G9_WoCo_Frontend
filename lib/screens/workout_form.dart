@@ -7,11 +7,22 @@ class WorkoutForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
 
+  void _loadFormData(Workout workout) {
+    if (workout != null) {
+      _formData['id'] = workout.id;
+      _formData['title'] = workout.title;
+      _formData['description'] = workout.description;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final Workout workout = ModalRoute.of(context).settings.arguments;
+
+    _loadFormData(workout);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Criação de Treino'),
+        title: Text('Seu Treino'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save_alt),
@@ -40,6 +51,7 @@ class WorkoutForm extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextFormField(
+                initialValue: _formData['title'],
                 decoration: InputDecoration(labelText: 'Título'),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
@@ -50,6 +62,7 @@ class WorkoutForm extends StatelessWidget {
                 onSaved: (value) => _formData['title'] = value,
               ),
               TextFormField(
+                initialValue: _formData['description'],
                 decoration: InputDecoration(labelText: 'Descrição'),
                 onSaved: (value) => _formData['description'] = value,
               ),

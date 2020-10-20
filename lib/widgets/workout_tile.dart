@@ -21,7 +21,12 @@ class WorkoutTile extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.edit),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  AppRoutes.WORKOUT_FORM,
+                  arguments: workout,
+                );
+              },
             ),
             IconButton(
               icon: Icon(Icons.delete),
