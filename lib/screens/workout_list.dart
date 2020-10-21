@@ -10,17 +10,18 @@ class WorkoutList extends StatelessWidget {
     final WorkoutProvider workouts = Provider.of(context);
 
     return Scaffold(
-        appBar: AppBar(title: Text('Lista de Treinos'), actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add_circle),
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.WORKOUT_FORM);
-            },
-          ),
-        ]),
-        body: ListView.builder(
-          itemCount: workouts.count,
-          itemBuilder: (ctx, i) => WorkoutTile(workouts.byIndex(i)),
-        ));
+      appBar: AppBar(title: Text('Lista de Treinos')),
+      body: ListView.builder(
+        itemCount: workouts.count,
+        itemBuilder: (ctx, i) => WorkoutTile(workouts.byIndex(i)),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.WORKOUT_FORM);
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Color(0XFF1D3075),
+      ),
+    );
   }
 }

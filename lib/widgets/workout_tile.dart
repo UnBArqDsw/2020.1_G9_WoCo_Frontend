@@ -11,52 +11,64 @@ class WorkoutTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(Icons.fitness_center),
-      title: Text(workout.title),
-      subtitle: Text(workout.description),
-      trailing: Container(
-        width: 100,
-        child: Row(
+    return Center(
+      child: Card(
+        child: Column(
           children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                Navigator.of(context).pushNamed(
-                  AppRoutes.WORKOUT_FORM,
-                  arguments: workout,
-                );
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.delete),
-              color: Colors.red,
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (ctx) => AlertDialog(
-                    title: Text('Excluir Treino'),
-                    content: Text('Tem certeza que deseja excluir seu treino?'),
-                    actions: <Widget>[
-                      FlatButton(
-                        child: Text('Não'),
-                        onPressed: () => Navigator.of(context).pop(false),
-                      ),
-                      FlatButton(
-                        child: Text('Sim'),
-                        onPressed: () => Navigator.of(context).pop(true),
-                      ),
-                    ],
-                  ),
-                ).then(
-                  (confirmed) {
-                    if (confirmed) {
-                      Provider.of<WorkoutProvider>(context, listen: false)
-                          .remove(workout);
-                    }
-                  },
-                );
-              },
+            ListTile(
+              leading: Icon(Icons.fitness_center),
+              title: Text(workout.title),
+              subtitle: Text(workout.description),
+              trailing: Container(
+                width: 100,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.edit),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(
+                          AppRoutes.WORKOUT_FORM,
+                          arguments: workout,
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Colors.red,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title: Text('Excluir Treino'),
+                            content: Text(
+                                'Tem certeza que deseja excluir seu treino?'),
+                            actions: <Widget>[
+                              FlatButton(
+                                child: Text('Não'),
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                              ),
+                              FlatButton(
+                                child: Text('Sim'),
+                                onPressed: () =>
+                                    Navigator.of(context).pop(true),
+                              ),
+                            ],
+                          ),
+                        ).then(
+                          (confirmed) {
+                            if (confirmed) {
+                              Provider.of<WorkoutProvider>(context,
+                                      listen: false)
+                                  .remove(workout);
+                            }
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
