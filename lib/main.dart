@@ -5,11 +5,15 @@ import 'package:WoCo/screens/workout_list.dart';
 import 'package:flutter/material.dart';
 
 // Bloc
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:WoCo/blocs/todoBloc/todo_bloc.dart';
+import 'package:WoCo/blocs/authenticationBloc/authentication_bloc.dart';
 
 // Screens
 import 'package:WoCo/screens/todo.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:WoCo/screens/signup_screen.dart';
+import 'package:WoCo/screens/auth_screen.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {
@@ -27,9 +31,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Color(0XFF1D3075),
         ),
-        initialRoute: '/todo',
+        initialRoute: AppRoutes.AUTH,
         routes: {
-          '/todo': (context) => MultiBlocProvider(
+          AppRoutes.HOME: (context) => MultiBlocProvider(
                 providers: [
                   BlocProvider<TodoBloc>(
                     create: (context) => TodoBloc(),
@@ -37,6 +41,23 @@ class MyApp extends StatelessWidget {
                 ],
                 child: Todo(),
               ),
+          AppRoutes.SIGN_UP: (context) => MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthenticationBloc>(
+                    create: (context) => AuthenticationBloc(),
+                  )
+                ],
+                child: SignUpScreen(),
+              ),
+          AppRoutes.LOG_IN: (context) => MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthenticationBloc>(
+                    create: (context) => AuthenticationBloc(),
+                  )
+                ],
+                child: SignUpScreen(),
+              ),
+          AppRoutes.AUTH: (_) => AuthScreen(),
           AppRoutes.WORKOUT_LIST: (_) => WorkoutList(),
           AppRoutes.WORKOUT_FORM: (_) => WorkoutForm()
         },

@@ -32,7 +32,7 @@ class MenuDrawer extends StatelessWidget {
             leading: Icon(Icons.exit_to_app),
             title: Text('Sair'),
             onTap: () {
-              print('Move to Exiting');
+              Navigator.of(context).pushNamed(AppRoutes.AUTH);
             },
           ),
         ],

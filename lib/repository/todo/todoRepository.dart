@@ -7,9 +7,9 @@ import 'dart:convert';
 class TodoRepository implements Base {
   @override
   Future<List<Todo>> fetchTodos() async {
-    TodoApi url = new TodoApi();
+    TodoApi api = new TodoApi();
 
-    var response = await http.get(url.baseUrl);
+    var response = await http.get(api.baseUrl);
 
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
