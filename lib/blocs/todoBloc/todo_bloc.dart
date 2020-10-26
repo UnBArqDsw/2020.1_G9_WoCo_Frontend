@@ -22,7 +22,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
   Stream<TodoState> mapFetchTodosToEvent(FetchTodos event) async* {
     try {
-      TodoListLoading();
+      yield TodoListLoading();
       List<Todo> list = await todoRepository.fetchTodos();
 
       yield TodoListLoaded(todos: list);
