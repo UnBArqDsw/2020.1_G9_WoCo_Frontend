@@ -37,6 +37,7 @@ class _LogInScreenState extends State<LogInScreen> {
         title: Text('Log In'),
         centerTitle: true,
       ),
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Container(
           height: _height,

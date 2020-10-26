@@ -37,6 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         title: Text('Sign Up'),
         centerTitle: true,
       ),
+      resizeToAvoidBottomPadding: false,
       body: SafeArea(
         child: Container(
           height: _height,
