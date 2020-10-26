@@ -13,6 +13,7 @@ import 'package:WoCo/blocs/authenticationBloc/authentication_bloc.dart';
 import 'package:WoCo/screens/todo.dart';
 import 'package:WoCo/screens/signup_screen.dart';
 import 'package:WoCo/screens/auth_screen.dart';
+import 'package:WoCo/screens/login_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
                     create: (context) => AuthenticationBloc(),
                   )
                 ],
-                child: SignUpScreen(),
+                child: LogInScreen(),
               ),
           AppRoutes.AUTH: (_) => AuthScreen(),
           AppRoutes.WORKOUT_LIST: (_) => WorkoutList(),

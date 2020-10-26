@@ -11,12 +11,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Routes
 import 'package:WoCo/routes/app_routes.dart';
 
-class SignUpScreen extends StatefulWidget {
+class LogInScreen extends StatefulWidget {
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _LogInScreenState createState() => _LogInScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LogInScreenState extends State<LogInScreen> {
   double _height, _width;
   TextEditingController _email, _password;
 
@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Log In'),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -43,19 +43,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
           width: _width,
           child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) {
-              if (state is SignUpInitial) {
-                return _signUpForm();
-              } else if (state is SignUpLoading) {
+              if (state is LogInInitial) {
+                return _logInForm();
+              } else if (state is LogInLoading) {
                 return Loading();
-              } else if (state is SignUpFailure) {
+              } else if (state is LogInFailure) {
                 return ErrorMessage(message: state.message);
               }
-              return Loading();
+              return _logInForm();
             },
             listener: (context, state) {
-              if (state is SignUpLoaded) {
+              if (state is LogInLoaded) {
                 Navigator.of(context)
-                    .pushNamedAndRemoveUntil(AppRoutes.AUTH, (route) => false);
+                    .pushNamedAndRemoveUntil(AppRoutes.HOME, (route) => false);
               }
             },
           ),
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Widget _signUpForm() {
+  Widget _logInForm() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       child: Form(
@@ -110,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget _signUpBtn() {
     return RaisedButton(
       child: Text(
-        'Registrar',
+        'Logar',
         style: TextStyle(color: Colors.white),
       ),
       onPressed: () {
@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           //authenticationBloc.add(SignUp(email: _email, password: _password));
           context
               .bloc<AuthenticationBloc>()
-              .add(SignUp(email: "eve.holt@reqres.in", password: "pistol"));
+              .add(LogIn(email: "eve.holt@reqres.in", password: "pistol"));
         }
       },
       color: Colors.blue,

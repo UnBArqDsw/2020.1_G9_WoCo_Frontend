@@ -19,6 +19,8 @@ class AuthenticationBloc
   ) async* {
     if (event is SignUp) {
       yield* mapSignUpToEvent(event);
+    } else if (event is LogIn) {
+      yield* mapLogInToEvent(event);
     }
   }
 
@@ -32,6 +34,19 @@ class AuthenticationBloc
       yield SignUpLoaded(token: auth.token, id: auth.id);
     } catch (e) {
       yield SignUpFailure(message: e.toString());
+    }
+  }
+
+  Stream<AuthenticationState> mapLogInToEvent(LogIn event) async* {
+    try {
+      yield LogInLoading();
+
+      Authentication auth =
+          await authenticationRepository.logIn(event.email, event.password);
+
+      yield LogInLoaded(token: auth.token);
+    } catch (e) {
+      yield LogInFailure(message: e.toString());
     }
   }
 }
