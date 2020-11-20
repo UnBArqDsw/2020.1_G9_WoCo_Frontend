@@ -51,7 +51,7 @@ class WorkoutRepository implements Base {
             'Content-Type': 'application/json',
           },
           body: jsonEncode(<String, String>{
-            'title': workout.title,
+            'name': workout.name,
           }),
         );
 
@@ -99,7 +99,7 @@ class WorkoutRepository implements Base {
             'Content-Type': 'application/json',
           },
           body: jsonEncode(<String, String>{
-            'title': workout.title,
+            'name': workout.name,
           }),
         );
         if (response.statusCode == 200) {

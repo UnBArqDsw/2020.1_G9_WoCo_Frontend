@@ -10,7 +10,7 @@ class WorkoutForm extends StatelessWidget {
   void _loadFormData(Workout workout) {
     if (workout != null) {
       _formData['id'] = workout.id;
-      _formData['title'] = workout.title;
+      _formData['name'] = workout.name;
       _formData['description'] = workout.description;
     }
   }
@@ -22,7 +22,7 @@ class WorkoutForm extends StatelessWidget {
     _loadFormData(workout);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seu Treino'),
+        title: Text('Seu Exercício'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save_alt),
@@ -34,7 +34,7 @@ class WorkoutForm extends StatelessWidget {
                 Provider.of<WorkoutProvider>(context, listen: false).put(
                   Workout(
                     id: _formData['id'],
-                    title: _formData['title'],
+                    name: _formData['name'],
                     description: _formData['description'],
                   ),
                 );
@@ -51,15 +51,15 @@ class WorkoutForm extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextFormField(
-                initialValue: _formData['title'],
-                decoration: InputDecoration(labelText: 'Título'),
+                initialValue: _formData['name'],
+                decoration: InputDecoration(labelText: 'Nome'),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return 'Digite um título';
+                    return 'Digite um nome';
                   }
                   return null;
                 },
-                onSaved: (value) => _formData['title'] = value,
+                onSaved: (value) => _formData['name'] = value,
               ),
               TextFormField(
                 initialValue: _formData['description'],

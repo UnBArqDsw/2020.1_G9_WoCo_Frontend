@@ -17,7 +17,7 @@ class WorkoutTile extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.fitness_center),
-              title: Text(workout.title),
+              title: Text(workout.name),
               subtitle: Text(workout.description),
               trailing: Container(
                 width: 100,
@@ -39,9 +39,9 @@ class WorkoutTile extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (ctx) => AlertDialog(
-                            title: Text('Excluir Treino'),
+                            title: Text('Excluir Exercício'),
                             content: Text(
-                                'Tem certeza que deseja excluir seu treino?'),
+                                'Tem certeza que deseja excluir seu exercício?'),
                             actions: <Widget>[
                               FlatButton(
                                 child: Text('Não'),
