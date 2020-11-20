@@ -15,5 +15,5 @@ const DUMMY_WORKOUTS = {
     id: '3',
     title: 'Treino de Quarta',
     description: 'ABCDE',
-  ),
+  )
 };

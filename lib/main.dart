@@ -1,13 +1,12 @@
 import 'package:WoCo/provider/workout_provider.dart';
 import 'package:WoCo/routes/app_routes.dart';
-import 'package:WoCo/screens/workout_form.dart';
-import 'package:WoCo/screens/workout_list.dart';
 import 'package:flutter/material.dart';
 
 // Bloc
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:WoCo/blocs/todoBloc/todo_bloc.dart';
 import 'package:WoCo/blocs/authenticationBloc/authentication_bloc.dart';
+import 'package:WoCo/blocs/workoutBloc/workout_bloc.dart';
 
 // Screens
 import 'package:WoCo/screens/todo.dart';
@@ -16,6 +15,8 @@ import 'package:WoCo/screens/auth_screen.dart';
 import 'package:WoCo/screens/login_screen.dart';
 import 'package:WoCo/screens/profile_screen.dart';
 import 'package:WoCo/screens/exercise_screen.dart';
+import 'package:WoCo/screens/workout_form.dart';
+import 'package:WoCo/screens/workout_list.dart';
 
 import 'package:provider/provider.dart';
 
@@ -70,3 +71,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// home: BlocProvider(
+// create: (BuildContext context) => AlbumBloc(AlbumRepositoryImpl()),
+// child: MyHomePage(title: 'Flutter Demo Home Page'),
+// )

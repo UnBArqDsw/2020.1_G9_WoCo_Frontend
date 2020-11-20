@@ -21,7 +21,7 @@ class _WorkoutFormState extends State<WorkoutForm> {
   void _loadFormData(Workout workout) {
     if (workout != null) {
       _formData['id'] = workout.id;
-      _formData['title'] = workout.title;
+      _formData['name'] = workout.title;
       _formData['description'] = workout.description;
     }
   }
@@ -32,7 +32,7 @@ class _WorkoutFormState extends State<WorkoutForm> {
     _loadFormData(workout);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Seu Treino'),
+        title: Text('Seu Exercício'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save_alt),
@@ -44,7 +44,7 @@ class _WorkoutFormState extends State<WorkoutForm> {
                 Provider.of<WorkoutProvider>(context, listen: false).put(
                   Workout(
                     id: _formData['id'],
-                    title: _formData['title'],
+                    title: _formData['name'],
                     description: _formData['description'],
                   ),
                 );
@@ -54,6 +54,7 @@ class _WorkoutFormState extends State<WorkoutForm> {
           ),
         ],
       ),
+      resizeToAvoidBottomPadding: false,
       body: Padding(
         padding: EdgeInsets.all(15),
         child: Form(
@@ -61,15 +62,15 @@ class _WorkoutFormState extends State<WorkoutForm> {
           child: Column(
             children: <Widget>[
               TextFormField(
-                initialValue: _formData['title'],
-                decoration: InputDecoration(labelText: 'Título'),
+                initialValue: _formData['name'],
+                decoration: InputDecoration(labelText: 'Nome'),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return 'Digite um título';
+                    return 'Digite um nome';
                   }
                   return null;
                 },
-                onSaved: (value) => _formData['title'] = value,
+                onSaved: (value) => _formData['name'] = value,
               ),
               TextFormField(
                 initialValue: _formData['description'],

@@ -105,6 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         labelText: 'Senha',
       ),
       controller: _password,
+      obscureText: true,
     );
   }
 
