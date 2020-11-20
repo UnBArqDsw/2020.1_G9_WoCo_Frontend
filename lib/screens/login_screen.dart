@@ -104,6 +104,7 @@ class _LogInScreenState extends State<LogInScreen> {
         hintText: 'Digite sua senha',
         labelText: 'Senha',
       ),
+      obscureText: true,
       controller: _password,
     );
   }

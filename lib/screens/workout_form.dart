@@ -13,7 +13,7 @@ class WorkoutForm extends StatefulWidget {
 
 class _WorkoutFormState extends State<WorkoutForm> {
   final _form = GlobalKey<FormState>();
-  var dropdownValue = 'superiores';
+  var dropdownValue = 'Dorsais';
   DateTime _dateTime1, _dateTime2;
 
   final Map<String, String> _formData = {};
@@ -76,8 +76,15 @@ class _WorkoutFormState extends State<WorkoutForm> {
                 decoration: InputDecoration(labelText: 'Descrição'),
                 onSaved: (value) => _formData['description'] = value,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Grupamento Muscular',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+              ),
               DropdownButton<String>(
-                  items: ['superiores', 'inferiores']
+                  items: ['Peitoral', 'Dorsais', 'Tríceps', "Bíceps", "Pernas"]
                       .map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
@@ -90,6 +97,13 @@ class _WorkoutFormState extends State<WorkoutForm> {
                     });
                   },
                   value: dropdownValue),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Período',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

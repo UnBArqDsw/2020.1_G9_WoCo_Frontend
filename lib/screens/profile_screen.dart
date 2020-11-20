@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:WoCo/models/meal.dart';
 import 'package:WoCo/screens/meal_detail_screen.dart';
-import 'package:WoCo/screens/workout_screen.dart';
+import 'package:WoCo/screens/daily_exercise_screen.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 
 // Widgets
@@ -136,7 +136,7 @@ class ProfileScreen extends StatelessWidget {
                         right: 16,
                       ),
                       child: Text(
-                        "Refeições",
+                        "Refeições do dia",
                         style: const TextStyle(
                             color: Colors.blueGrey,
                             fontSize: 16,
@@ -169,7 +169,7 @@ class ProfileScreen extends StatelessWidget {
                         transitionDuration: const Duration(milliseconds: 1000),
                         closedColor: const Color(0xFFE9E9E9),
                         openBuilder: (context, _) {
-                          return WorkoutScreen();
+                          return DailyExerciseScreen();
                         },
                         closedBuilder: (context, VoidCallback openContainer) {
                           return GestureDetector(
@@ -211,7 +211,7 @@ class ProfileScreen extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         top: 4.0, left: 16),
                                     child: Text(
-                                      "Superiores",
+                                      "Dorsais",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 24,
@@ -233,45 +233,14 @@ class ProfileScreen extends StatelessWidget {
                                           ),
                                           padding: const EdgeInsets.all(10),
                                           child: Image.asset(
-                                            "assets/chest.png",
-                                            width: 50,
-                                            height: 50,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(25)),
-                                            color: const Color(0xFF5B4D9D),
-                                          ),
-                                          padding: const EdgeInsets.all(10),
-                                          child: Image.asset(
                                             "assets/back.png",
-                                            width: 50,
-                                            height: 50,
+                                            width: 80,
+                                            height: 80,
                                             color: Colors.white,
                                           ),
                                         ),
                                         SizedBox(
                                           width: 10,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(25)),
-                                            color: const Color(0xFF5B4D9D),
-                                          ),
-                                          padding: const EdgeInsets.all(10),
-                                          child: Image.asset(
-                                            "assets/biceps.png",
-                                            width: 50,
-                                            height: 50,
-                                            color: Colors.white,
-                                          ),
                                         ),
                                         SizedBox(
                                           width: 10,

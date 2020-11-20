@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:WoCo/models/upper_body_workout.dart';
+import 'package:WoCo/models/body_workout.dart';
 import 'package:WoCo/widgets/menuDrawer.dart';
 
 class WorkoutScreen extends StatelessWidget {
@@ -13,7 +13,7 @@ class WorkoutScreen extends StatelessWidget {
       drawer: MenuDrawer(),
       appBar: AppBar(
         backgroundColor: Color(0XFF1D3075),
-        title: Text('WoCo'),
+        title: Text('Lista de exercícios'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -27,77 +27,10 @@ class WorkoutScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              ListTile(
-                title: Text(
-                  "${DateFormat("EEEE").format(today)}, ${DateFormat("d MMMM").format(today)}",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-                subtitle: Text(
-                  "Upper Body",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 24,
-                    color: Colors.white,
-                  ),
-                ),
-                trailing: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Icon(
-                          Icons.access_time,
-                          color: Colors.white30,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "60 mins",
-                          style: TextStyle(
-                              color: Colors.white70,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Icon(
-                          Icons.shutter_speed,
-                          color: Colors.white30,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Easy",
-                          style: TextStyle(
-                              color: Colors.white70,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              for (int i = 0; i < upperBody.length; i++)
+              for (int i = 0; i < allExercises.length; i++)
                 Column(
                   children: <Widget>[
-                    for (int j = 0; j < upperBody[i].length; j++)
+                    for (int j = 0; j < allExercises[i].length; j++)
                       ListTile(
                         leading: Container(
                           decoration: BoxDecoration(
@@ -106,14 +39,14 @@ class WorkoutScreen extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(6),
                           child: Image.asset(
-                            upperBody[i][j].imagePath,
+                            allExercises[i][j].imagePath,
                             width: 45,
                             height: 45,
                             color: Colors.white,
                           ),
                         ),
                         title: Text(
-                          upperBody[i][j].name,
+                          allExercises[i][j].name,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 22,
@@ -121,7 +54,7 @@ class WorkoutScreen extends StatelessWidget {
                           ),
                         ),
                         subtitle: Text(
-                          upperBody[i][j].instruction,
+                          allExercises[i][j].instruction,
                           style: TextStyle(
                             color: Colors.white70,
                             fontSize: 14,

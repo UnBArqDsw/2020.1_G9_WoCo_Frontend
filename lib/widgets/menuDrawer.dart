@@ -22,17 +22,17 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.play_circle_fill),
-            title: Text('Treinos'),
-            onTap: () {
-              Navigator.of(context).pushNamed(AppRoutes.WORKOUT_LIST);
-            },
-          ),
-          ListTile(
             leading: Icon(Icons.play_for_work_rounded),
             title: Text('Exercícios'),
             onTap: () {
               Navigator.of(context).pushNamed(AppRoutes.EXERCISE);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.play_circle_fill),
+            title: Text('Treinos'),
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoutes.WORKOUT_LIST);
             },
           ),
           ListTile(
