@@ -35,7 +35,7 @@ class WorkoutProvider with ChangeNotifier {
         id,
         () => Workout(
           id: id,
-          title: workout.title,
+          name: workout.name,
           description: workout.description,
         ),
       );

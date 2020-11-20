@@ -16,7 +16,7 @@ class MenuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.play_circle_fill),
-            title: Text('Treinos'),
+            title: Text('Exercícios'),
             onTap: () {
               Navigator.of(context).pushNamed(AppRoutes.WORKOUT_LIST);
             },

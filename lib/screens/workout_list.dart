@@ -10,7 +10,7 @@ class WorkoutList extends StatelessWidget {
     final WorkoutProvider workouts = Provider.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Lista de Treinos')),
+      appBar: AppBar(title: Text('Lista de Exercícios')),
       body: ListView.builder(
         itemCount: workouts.count,
         itemBuilder: (ctx, i) => WorkoutTile(workouts.byIndex(i)),
