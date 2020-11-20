@@ -15,6 +15,13 @@ class MenuDrawer extends StatelessWidget {
             child: profile(),
           ),
           ListTile(
+            leading: Icon(Icons.supervised_user_circle),
+            title: Text('Perfil'),
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRoutes.PROFILE);
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.play_circle_fill),
             title: Text('Treinos'),
             onTap: () {
@@ -22,10 +29,10 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Configurações'),
+            leading: Icon(Icons.play_for_work_rounded),
+            title: Text('Exercícios'),
             onTap: () {
-              print('Move to Configurações');
+              Navigator.of(context).pushNamed(AppRoutes.EXERCISE);
             },
           ),
           ListTile(

@@ -14,6 +14,8 @@ import 'package:WoCo/screens/todo.dart';
 import 'package:WoCo/screens/signup_screen.dart';
 import 'package:WoCo/screens/auth_screen.dart';
 import 'package:WoCo/screens/login_screen.dart';
+import 'package:WoCo/screens/profile_screen.dart';
+import 'package:WoCo/screens/exercise_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -60,7 +62,9 @@ class MyApp extends StatelessWidget {
               ),
           AppRoutes.AUTH: (_) => AuthScreen(),
           AppRoutes.WORKOUT_LIST: (_) => WorkoutList(),
-          AppRoutes.WORKOUT_FORM: (_) => WorkoutForm()
+          AppRoutes.WORKOUT_FORM: (_) => WorkoutForm(),
+          AppRoutes.PROFILE: (_) => ProfileScreen(),
+          AppRoutes.EXERCISE: (_) => WorkoutScreen()
         },
       ),
     );

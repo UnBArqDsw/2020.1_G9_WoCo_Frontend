@@ -55,8 +55,8 @@ class _LogInScreenState extends State<LogInScreen> {
             },
             listener: (context, state) {
               if (state is LogInLoaded) {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil(AppRoutes.HOME, (route) => false);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    AppRoutes.PROFILE, (route) => false);
               }
             },
           ),
