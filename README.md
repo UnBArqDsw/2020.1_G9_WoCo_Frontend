@@ -27,10 +27,32 @@ A aplicação permite a adição de treinos categorizados por grupamentos muscul
 
 ## Imagens da Aplicação
 
-<p align="center">
-    <img src="images/woco_screens.gif" alt="Logo" height=600 width=320>
-</p>
+### Login e Sign Up
 
+<p align="center">
+    <img src="images/1_screen.gif" alt="Logo" height=600 width=320>
+</p>
+<br>
+
+### Perfil
+
+<p align="center">
+    <img src="images/2_screen.gif" alt="Logo" height=600 width=320>
+</p>
+<br>
+
+### Exercícios
+
+<p align="center">
+    <img src="images/3_screen.gif" alt="Logo" height=600 width=320>
+</p>
+<br>
+
+### Treinos
+
+<p align="center">
+    <img src="images/4_screen.gif" alt="Logo" height=600 width=320>
+</p>
 <br>
 
 ## Depêndencias
